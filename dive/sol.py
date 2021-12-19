@@ -1,14 +1,15 @@
 with open('input.txt', encoding='utf-8') as f:
-    x, y = 0, 0
+    x, y, aim = 0, 0, 0
     for instruction in f.readlines():
         direction, unit = instruction.split()
         unit = int(unit)
         if direction == 'forward':
             x += unit
+            y += (aim * unit)
         elif direction == 'down':
-            y += unit
+            aim += unit
         elif direction == 'up':
-            y -= unit
+            aim -= unit
         else:
             pass
 
